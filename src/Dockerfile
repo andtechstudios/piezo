@@ -8,7 +8,7 @@ ENV PATH=$PATH:/home/devuser/.dotnet/tools
 # golang
 RUN wget -q -O - https://git.io/vQhTU | bash
 ENV GOROOT=/home/devuser/.go
-ENV PATH=$GOROOT/bin:$PATH
+ENV PATH=/home/devuser/bin:$PATH
 # hugo
 RUN wget https://github.com/gohugoio/hugo/releases/download/v0.90.1/hugo_extended_0.90.1_Linux-64bit.deb \
     -O hugo.deb; \
