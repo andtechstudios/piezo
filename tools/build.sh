@@ -4,7 +4,7 @@ set -e
 
 buildDir=$(realpath $1)
 scriptsDir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
-rootDir=$(realpath scriptsDir/..)
+rootDir=$(realpath $scriptsDir/..)
 
 cd $rootDir
 scripts/frontmatter.csx site/content
