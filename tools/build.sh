@@ -2,9 +2,13 @@
 
 set -e
 
-buildDir=$1
-scripts/frontmatter.csx public/content
-scripts/home.csx public/content
-hugo-obsidian -input=public/content -output=public/data -index=true 1> /dev/null
-scripts/list.csx public/content
+buildDir=$(realpath $1)
+scriptsDir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+rootDir=$(realpath scriptsDir/..)
+
+cd $rootDir
+scripts/frontmatter.csx site/content
+scripts/home.csx site/content
+hugo-obsidian -input=site/content -output=site/data -index=true 1> /dev/null
+scripts/list.csx site/content
 hugo --source site --destination $buildDir
