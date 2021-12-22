@@ -1,0 +1,5 @@
+<script>
+	Mousetrap.bind(['alt+up', 'command+up'], function() { window.location.href =  '..'; });
+	Mousetrap.bind('.', function() { window.location.href = "{{ .Site.Params.editURL }}"; });
+	Mousetrap.bind('?', function() { window.location.href = "/help"; });
+</script>

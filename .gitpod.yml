@@ -1,2 +1,11 @@
 image:
     file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      go install github.com/jackyzha0/hugo-obsidian@latest
+      hugo-obsidian -input=site/content -output=site/data -index=true
+  - command: |
+      wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.90.1/hugo_extended_0.90.1_Linux-64bit.deb
+      sudo dpkg -i hugo.deb
+      rm hugo.deb

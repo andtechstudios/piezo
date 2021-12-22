@@ -1,0 +1,5 @@
+enableLegend: false
+enableDrag: true
+enableZoom: true
+paths:
+  - /null/: "#f0f"

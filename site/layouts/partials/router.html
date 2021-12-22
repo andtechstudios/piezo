@@ -1,0 +1,25 @@
+<script>
+	const routes = [];
+	{{- range $.Site.Data.config.hotspots -}}
+	routes.push({"id": "{{.id}}", "url": "{{.url}}"});
+	{{- end -}}
+
+	function locationHashChanged() {
+		routes.forEach(route => {
+			var hash = '#' + route["id"];
+			if (location.hash === hash)
+			{
+				var element = document.getElementById(route["id"]);
+				if (element!=null) {
+					console.log("Conflict. Skipping...");
+				}
+				else {
+					window.location.href = route["url"];
+				}
+			}
+		});
+	}
+	window.onhashchange = locationHashChanged;
+
+	window.onhashchange();
+</script>

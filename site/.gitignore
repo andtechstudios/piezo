@@ -1,0 +1,10 @@
+.DS_Store
+public
+resources
+.idea
+content/.obsidian
+content/**/index.md
+content/**/_index.md
+data/linkIndex.yaml
+data/contentIndex.yaml
+.hugo_build.lock

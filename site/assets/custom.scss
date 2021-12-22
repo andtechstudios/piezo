@@ -1,0 +1,28 @@
+// Add your own CSS here!
+:root {
+  --light: #ffffff;
+  --dark: #2D2D2D;
+  --primary: #ecad00;
+  --secondary: #4747e6;
+  --tertiary: #6d6dff;
+  --visited: #4747e6;
+  --gray: #2D2D2D;
+  --lightgray: #e5e9ec;
+  --outlinegray: #E0E4E7;
+  --list-bg-selected: #4747e611;
+  --list-border-selected: #4747e622;
+}
+
+[saved-theme="dark"] {
+  --light: #1e1e1e !important;
+  --dark: #DEE2E6 !important;
+  --primary: #ffd61f !important;
+  --secondary: #6c8eff !important;
+  --tertiary: #93acff !important;
+  --visited: #6c8eff !important;
+  --gray: #DEE2E6 !important;
+  --lightgray: #303030 !important;
+  --outlinegray: #404040 !important;
+  --list-bg-selected: #6c8eff22;
+  --list-border-selected: #6c8eff44;
+}

@@ -1,0 +1,50 @@
+<script>
+	var ul = document.getElementById('dirlist');
+	var liSelected;
+	var index = 0;
+  	var len = ul.getElementsByTagName('li').length - 1;
+
+	function rebuild()
+	{
+		if (liSelected)
+		{
+			removeClass(liSelected, 'selected');
+		}
+		index = (index + (len + 1)) % (len + 1);
+		liSelected = ul.getElementsByTagName('li')[index];
+		addClass(liSelected, 'selected');
+	}
+
+	function moveDown(e) {
+		index++;
+		rebuild();
+		return false;
+	}
+	function moveUp(e) {
+		index--;
+		rebuild();
+		return false;
+	}
+	function submit() {
+		if (liSelected) {
+			window.location.href = liSelected.querySelector('a').getAttribute('href');
+		}
+	}
+	function removeClass(el, className) {
+		if (el.classList) {
+			el.classList.remove(className);
+		} else {
+			el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+		}
+	};
+	function addClass(el, className) {
+		if (el.classList) {
+			el.classList.add(className);
+		} else {
+			el.className += ' ' + className;
+		}
+	};
+	Mousetrap.bind('down', moveDown);
+	Mousetrap.bind('up', moveUp);
+	Mousetrap.bind('enter', submit);
+</script>

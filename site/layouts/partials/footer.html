@@ -1,0 +1,30 @@
+<hr>
+<div class="page-end">
+    {{ if .Site.Params.quartz.enableBacklinks }}
+    <div class="backlinks-container">
+        {{partial "backlinks.html" .}}
+    </div>
+    {{end}}
+    {{ if .Site.Params.quartz.enableGraph }}
+    <div>
+        {{partial "graph.html" .}}
+    </div>
+    {{end}}
+</div>
+
+<!-- Contact Info -->
+<div id="contact_buttons">
+    <footer>
+        {{ if not .IsHome }}
+        <a href="/">Home</a>
+        {{end}}
+        {{- range $.Site.Data.config.links -}}
+        <a href="{{.link}}">{{.link_name}}</a>
+        {{- end -}}
+        <p>© {{ dateFormat "2006" now }} • Powered by <a href="https://quartz.jzhao.xyz/">Quartz</a></p>
+    </footer>
+</div>
+
+<script src="/js/vendor/mousetrap/mousetrap.min.js"></script>
+{{partial "router.html" .}}
+{{partial "keybindings.html" .}}

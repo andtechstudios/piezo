@@ -1,0 +1,14 @@
+name: Piezo
+enableToc: false
+description:
+  Quartz with extensions
+page_title:
+  Piezo
+links:
+  - link_name: GitHub
+    link: https://github.com/andtechstudios/piezo
+hotspots:
+  - id: github
+    url: https://github.com/andtechstudios/piezo
+  - id: gitpod
+    url: https://gitpod.io#github.com/andtechstudios/piezo
