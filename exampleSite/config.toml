@@ -1,5 +1,6 @@
 baseURL = "https://andtechstudios.github.io/piezo"
 languageCode = "en-us"
+theme = "piezo"
 googleAnalytics = "G-XYFD95KB4J"
 pygmentsUseClasses = true
 relativeURLs = true
