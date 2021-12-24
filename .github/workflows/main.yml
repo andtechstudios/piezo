@@ -38,6 +38,6 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: src
-          file: src/Dockerfile
+          file: src/docker/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prep.outputs.tags }}
