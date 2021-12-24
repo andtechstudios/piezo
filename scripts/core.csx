@@ -1,4 +1,27 @@
+#r "nuget: YamlDotNet, 11.2.1"
+
 using System.IO;
+using YamlDotNet.Serialization;
+
+public class Configuration
+{
+	public List<Location> locations;
+
+	public class Location
+	{
+		public string name;
+		public string url;
+	}
+
+	public static Configuration Read(string path)
+	{
+		var input = new StreamReader(path);
+		var deserializer = new DeserializerBuilder()
+			.Build();
+
+		return deserializer.Deserialize<Configuration>(input);
+	}
+}
 
 string GetScriptDirectory() => Path.GetDirectoryName(GetCurrentFilePath());
 

@@ -1,0 +1,7 @@
+locations:
+  - name: posts/
+    url: /posts/
+  - name: projects/
+    url: /projects/
+  - name: notes/
+    url: /notes/

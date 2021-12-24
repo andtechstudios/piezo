@@ -2,17 +2,14 @@
 
 #load "core.csx"
 
-var folders = new string[] {
-	"posts",
-	"projects",
-	"notes",
-};
-
 var searchRoot = Args[0];
 var configDirectory = Path.Combine(Environment.CurrentDirectory, ".piezo");
-var templatePath = Path.Combine(configDirectory, "_index.md");
-var indexFile = Path.Combine(searchRoot, "_index.md");
 
+// Read configuration
+var configuration = Configuration.Read(Path.Combine(configDirectory, "config.yaml"));
+var templatePath = Path.Combine(configDirectory, "_index.md");
+
+var indexFile = Path.Combine(searchRoot, "_index.md");
 var writer = OpenWriter();
 foreach (var line in File.ReadAllLines(templatePath))
 {
@@ -20,9 +17,9 @@ foreach (var line in File.ReadAllLines(templatePath))
 }
 
 HTML.BeginList();
-foreach (var folder in folders)
+foreach (var location in configuration.locations)
 {
-	HTML.ListItem($"{folder}/", $"/{folder}/", true);
+	HTML.ListItem($"{location.name}", $"{location.url}", true);
 }
 HTML.EndList();
 
