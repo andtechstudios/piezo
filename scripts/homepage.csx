@@ -9,9 +9,9 @@ var folders = new string[] {
 };
 
 var searchRoot = Args[0];
+var configDirectory = Path.Combine(Environment.CurrentDirectory, ".piezo");
+var templatePath = Path.Combine(configDirectory, "_index.md");
 var indexFile = Path.Combine(searchRoot, "_index.md");
-
-var templatePath = Path.Combine(GetScriptDirectory(), "_index.md");
 
 var writer = OpenWriter();
 foreach (var line in File.ReadAllLines(templatePath))
