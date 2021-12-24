@@ -6,7 +6,7 @@ on:
 env:
   DOCKER_PROJECT_DIR: docker
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/essentials-ubuntu
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   deploy-image:
