@@ -1,20 +1,18 @@
 FROM cimg/base:stable
 
-ENV HOME="/home/circleci"
-
 # dotnet
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-ENV DOTNET_ROOT=$HOME/dotnet
+ENV DOTNET_ROOT=/home/circleci/dotnet
 RUN mkdir -p $DOTNET_ROOT; \
     curl -fsSL "https://dot.net/v1/dotnet-install.sh" | bash /dev/stdin --channel Current --install-dir $DOTNET_ROOT;
-ENV PATH=$PATH:$DOTNET_ROOT:$HOME/.dotnet/tools
+ENV PATH=$PATH:$DOTNET_ROOT:/home/circleci/.dotnet/tools
 # dotnet tools
 RUN dotnet tool install --global dotnet-script
 # golang
-ENV shell_profile="$HOME/.bashrc"
+ENV shell_profile="/home/circleci/.bashrc"
 RUN wget -q -O - "https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh" | bash
-ENV GOROOT=$HOME/.go
-ENV PATH=$HOME/.go/bin:$HOME/go/bin:$PATH
+ENV GOROOT=/home/circleci/.go
+ENV PATH=/home/circleci/.go/bin:/home/circleci/go/bin:$PATH
 # golang tools
 RUN go install github.com/jackyzha0/hugo-obsidian@latest
 # hugo
