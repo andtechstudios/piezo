@@ -1,4 +1,4 @@
-locations:
+sections:
   - name: posts/
     url: /posts/
   - name: projects/

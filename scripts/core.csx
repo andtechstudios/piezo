@@ -5,9 +5,9 @@ using YamlDotNet.Serialization;
 
 public class Configuration
 {
-	public List<Location> locations;
+	public List<Section> sections;
 
-	public class Location
+	public class Section
 	{
 		public string name;
 		public string url;

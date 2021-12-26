@@ -17,9 +17,9 @@ foreach (var line in File.ReadAllLines(templatePath))
 }
 
 HTML.BeginList();
-foreach (var location in configuration.locations)
+foreach (var section in configuration.sections)
 {
-	HTML.ListItem($"{location.name}", $"{location.url}", true);
+	HTML.ListItem($"{section.name}", $"{section.url}", true);
 }
 HTML.EndList();
 
